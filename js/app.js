@@ -2,7 +2,6 @@ const taskForm = document.querySelector(".js-task-form-wrapper");
 const taskInput = document.querySelector("[data-text-input]");
 const taskSubmitBtn = document.querySelector("[data-add-todo-btn]");
 const taskList = document.querySelector("[data-todo-container]");
-// const removeBtn = document.querySelector(".remove-btn");
 
 const taskArr = [];
 
@@ -24,11 +23,16 @@ function handlerSubmitForm(evt) {
 
 function render() {
   taskList.innerHTML = "";
-  taskArr.forEach(({ text, id }) => {
+  taskArr.forEach(({ text, id, isDone }) => {
     const taskItem = createElement("li", text, "task");
     const removeBtn = createElement("button", "❌", "remove-btn");
 
-    removeBtn.addEventListener("click", () => removeTask(id));
+    removeBtn.addEventListener("click", (evt) => removeTask(id, evt));
+    taskItem.addEventListener("click", () => toggleTask(id));
+
+    if (isDone) {
+      taskItem.classList.add("is-completed");
+    }
 
     taskItem.append(removeBtn);
     taskList.append(taskItem);
@@ -42,8 +46,17 @@ function createElement(tagName, textContent, className) {
   return element;
 }
 
-function removeTask(id) {
+function removeTask(id, evt) {
+  evt.stopPropagation();
   const index = taskArr.findIndex((task) => task.id === id);
   taskArr.splice(index, 1);
+  render();
+}
+
+function toggleTask(id) {
+  const task = taskArr.find((task) => task.id === id);
+  if (task) {
+    task.isDone = !task.isDone;
+  }
   render();
 }
