@@ -1,9 +1,9 @@
+import { taskArr } from "./state.js";
+import { saveToLocalStorage } from "./helpers/local-storage.js";
+import { render } from "./helpers/render.js";
+
 const taskForm = document.querySelector(".js-task-form-wrapper");
 const taskInput = document.querySelector("[data-text-input]");
-const taskSubmitBtn = document.querySelector("[data-add-todo-btn]");
-const taskList = document.querySelector("[data-todo-container]");
-
-const taskArr = JSON.parse(localStorage.getItem("tasks")) || [];
 
 taskForm.addEventListener("submit", handlerSubmitForm);
 
@@ -17,44 +17,19 @@ function handlerSubmitForm(evt) {
     isDone: false,
   });
   taskInput.value = "";
-
+saveToLocalStorage()
   render();
 }
 
-function render() {
-  taskList.innerHTML = "";
-  taskArr.forEach(({ text, id, isDone }) => {
-    const taskItem = createElement("li", text, "task");
-    const removeBtn = createElement("button", "❌", "remove-btn");
-
-    removeBtn.addEventListener("click", (evt) => removeTask(id, evt));
-    taskItem.addEventListener("click", () => toggleTask(id));
-
-    if (isDone) {
-      taskItem.classList.add("is-completed");
-    }
-
-    taskItem.append(removeBtn);
-    taskList.append(taskItem);
-  });
-  saveToLocalStorage();
-}
-
-function createElement(tagName, textContent, className) {
-  const element = document.createElement(tagName);
-  element.textContent = textContent;
-  element.classList.add(className);
-  return element;
-}
-
-function removeTask(id, evt) {
+export function removeTask(id, evt) {
   evt.stopPropagation();
   const index = taskArr.findIndex((task) => task.id === id);
-  taskArr.splice(index, 1);
+    taskArr.splice(index, 1);
+    saveToLocalStorage()
   render();
 }
 
-function toggleTask(id) {
+export function toggleTask(id) {
   const task = taskArr.find((task) => task.id === id);
   if (task) {
     task.isDone = !task.isDone;
@@ -62,7 +37,4 @@ function toggleTask(id) {
   render();
 }
 
-function saveToLocalStorage() {
-  localStorage.setItem("tasks", JSON.stringify(taskArr));
-}
 render();
