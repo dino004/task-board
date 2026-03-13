@@ -17,23 +17,7 @@ function handlerSubmitForm(evt) {
     isDone: false,
   });
   taskInput.value = "";
-saveToLocalStorage()
-  render();
-}
-
-export function removeTask(id, evt) {
-  evt.stopPropagation();
-  const index = taskArr.findIndex((task) => task.id === id);
-    taskArr.splice(index, 1);
-    saveToLocalStorage()
-  render();
-}
-
-export function toggleTask(id) {
-  const task = taskArr.find((task) => task.id === id);
-  if (task) {
-    task.isDone = !task.isDone;
-  }
+  saveToLocalStorage();
   render();
 }
 

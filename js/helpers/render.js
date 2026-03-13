@@ -1,6 +1,6 @@
 import { taskArr } from "../state.js";
 import { createElement } from "./dom.js";
-import { removeTask, toggleTask } from "../app.js";
+import { removeTask, toggleTask } from "./handlers.js";
 
 const taskList = document.querySelector("[data-todo-container]");
 
