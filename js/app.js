@@ -3,7 +3,7 @@ const taskInput = document.querySelector("[data-text-input]");
 const taskSubmitBtn = document.querySelector("[data-add-todo-btn]");
 const taskList = document.querySelector("[data-todo-container]");
 
-const taskArr = [];
+const taskArr = JSON.parse(localStorage.getItem("tasks")) || [];
 
 taskForm.addEventListener("submit", handlerSubmitForm);
 
@@ -37,6 +37,7 @@ function render() {
     taskItem.append(removeBtn);
     taskList.append(taskItem);
   });
+  saveToLocalStorage();
 }
 
 function createElement(tagName, textContent, className) {
@@ -60,3 +61,8 @@ function toggleTask(id) {
   }
   render();
 }
+
+function saveToLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(taskArr));
+}
+render();
