@@ -1,4 +1,94 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.app {
+  display: block;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 1em;
+  padding: 10px;
+  background-color: rosybrown;
+  border-radius: 10px;
+}
+.input-task,
+.add-btn {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+.input-task:focus {
+  outline: 2px solid #bc8f8f;
+}
+
+.add-btn {
+  background-color: rgb(213, 152, 152);
+  color: brown;
+  cursor: pointer;
+  transition:
+    background-color 200ms linear,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.add-btn:hover {
+  background-color: #bc8f8f;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .is-completed {
-    text-decoration: line-through;
-    opacity: 0.6;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.todo-list-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  min-height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rosybrown;
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: rgb(213, 152, 152);
+}
+
+.remove-btn {
+  border: none;
+  background: none;
+  transition: transform 200ms linear;
+}
+
+.remove-btn:hover {
+  transform: scale(1.2);
 }

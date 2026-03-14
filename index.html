@@ -4,22 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>task board</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <script type="module" src="./js/app.js"></script>
   </head>
   <body>
-    <section class="js-task-board">
-      <form class="js-task-form-wrapper" autocomplete="off">
+    <section class="app js-task-board">
+      <form class="form js-task-form-wrapper" autocomplete="off">
         <input
+          class="input-task"
           type="text"
           data-text-input
           name="todo-text"
           placeholder="Enter task..."
           required
         />
-        <button type="submit" data-add-todo-btn>Add task</button>
+        <button class="add-btn" type="submit" data-add-todo-btn>
+          Add task
+        </button>
       </form>
-      <ol class="todo-list-styles" data-todo-container></ol>
+      <ul class="todo-list-styles" data-todo-container></ul>
     </section>
   </body>
 </html>
