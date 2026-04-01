@@ -1,22 +1,24 @@
-# Task Board Application
+[Українська версія 🇺🇦](./README.ua.md) | **English 🇺🇸**
 
-Простой и функциональный планировщик задач, созданный для отработки навыков современной фронтенд-разработки.
+---
 
-## 🚀 Технологии и особенности
+# Task Board (Vanilla JS)
 
-В этом проекте я реализовал несколько ключевых концепций:
+A simple and functional Kanban-style task board written in pure JavaScript. This project was created to consolidate fundamental skills in DOM manipulation and working with browser storage.
 
-* **ES6 Modules**: Код разделен на независимые модули (`state`, `render`, `handlers`, `storage`), что обеспечивает чистоту архитектуры и удобство поддержки.
-* **LocalStorage**: Реализовано сохранение состояния. Все ваши задачи остаются на месте даже после перезагрузки страницы.
-* **Modern CSS (Grid & Flexbox)**: 
-    * Форма построена на **CSS Grid** для точного позиционирования элементов.
-    * Список задач использует **Flexbox** для гибкого управления макетом.
-    * Использованы современные возможности **CSS Nesting** (вложенность).
-* **Modern Normalize**: Подключена библиотека для обеспечения идентичного отображения интерфейса во всех популярных браузерах.
-* **Interactive UI**: Добавлены плавные микро-взаимодействия (эффекты при наведении и нажатии на кнопки).
+## 🚀 Tech Stack
+* **Frontend:** JavaScript (ES6+), HTML5, CSS3
+* **Storage:** LocalStorage (for data persistence)
 
-## 🛠 Установка и запуск
+## 💡 Key Features
+* Create, edit, and delete tasks.
+* Move cards between columns.
+* Automatic state saving in the browser (data is not lost on page reload).
 
-1. Клонируйте репозиторий:
-   ```bash
-   git clone [https://github.com/dino004/task-board.git](https://github.com/dino004/task-board.git)
+## 🛠️ How to Run Locally
+1. Clone the repository: `git clone https://github.com/dino004/task-board.git`
+2. Open the `index.html` file in any browser (or use Live Server in VS Code).
+
+## 📈 Future Plans
+* Rewrite the application using **React** to practice component-based architecture.
+* Build a full-fledged backend (Node.js/Express) and a database to store tasks in the cloud.
